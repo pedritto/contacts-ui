@@ -1,0 +1,90 @@
+.card {
+  background: lightgray;
+  border: 2px solid grey;
+  border-radius: 10px;
+  color: darkslategrey;
+  display: inline-block;
+  padding: 10px;
+  width: 390px;
+  margin-bottom: 20px;
+}
+
+.profile {
+  display: inline-block;
+}
+
+.picture {
+  border-radius: 50%;
+  display: block;
+  width: 125px;
+  height: 125px;
+  border: 5px solid grey;
+}
+
+.details {
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px 0 0 30px;
+  white-space: nowrap;
+}
+
+.detailsTop {
+  width: 250px;
+}
+
+.contactName {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 0 10px 25px;
+  overflow: hidden;
+  width: 185px;
+}
+
+.address {
+  font-style: italic;
+}
+
+.address::before {
+  content: url('./img_home.png');
+  margin-right: 15px;
+  vertical-align: -30px;
+  zoom: 18%;
+}
+
+.work {
+  font-weight: bold;
+}
+
+.work::before {
+  content: url('./img_work.png');
+  margin-right: 50px;
+  vertical-align: -30px;
+  zoom: 16%;
+}
+
+.telephone {
+  font-style: normal;
+}
+
+.telephone::before {
+  content: url('./img_tel.png');
+  margin-right: 15px;
+  vertical-align: -30px;
+  zoom: 18%;
+}
+
+.email {
+  font-style: italic;
+}
+
+.email a {
+  color: darkslategrey;
+}
+
+.email::before {
+  content: url('./img_email.png');
+  margin-right: 15px;
+  vertical-align: -40px;
+  zoom: 18%;
+}

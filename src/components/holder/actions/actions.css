@@ -1,0 +1,33 @@
+.show {
+  display: inline-block;
+  margin: 4px 0 0 2px;
+  vertical-align: top;
+}
+
+.hide {
+  display: none;
+  margin: 4px 0 0 2px;
+  vertical-align: top;
+}
+
+.show .delete {
+  margin-bottom: 4px;
+}
+
+.show .delete input {
+  background: url('./img_cancel.png') no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  border: none;
+}
+
+.show .edit input {
+  background: url('./img_edit.png') no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  border: none;
+}
