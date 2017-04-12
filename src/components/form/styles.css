@@ -33,7 +33,7 @@ input {
 }
 
 .submit input {
-  background: url('./img_accept.png') no-repeat;
+  background: url('../../images/accept.png') no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
   width: 25px;

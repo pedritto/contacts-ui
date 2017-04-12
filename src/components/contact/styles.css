@@ -46,7 +46,7 @@
 }
 
 .address::before {
-  content: url('./img_home.png');
+  content: url('../../images/home.png');
   margin-right: 15px;
   vertical-align: -30px;
   zoom: 18%;
@@ -57,7 +57,7 @@
 }
 
 .work::before {
-  content: url('./img_work.png');
+  content: url('../../images/work.png');
   margin-right: 50px;
   vertical-align: -30px;
   zoom: 16%;
@@ -68,7 +68,7 @@
 }
 
 .telephone::before {
-  content: url('./img_tel.png');
+  content: url('../../images/tel.png');
   margin-right: 15px;
   vertical-align: -30px;
   zoom: 18%;
@@ -83,7 +83,7 @@
 }
 
 .email::before {
-  content: url('./img_email.png');
+  content: url('../../images/email.png');
   margin-right: 15px;
   vertical-align: -40px;
   zoom: 18%;

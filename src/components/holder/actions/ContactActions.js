@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import styles from './actions.css';
+import styles from './styles.css';
 
-import { deleteContact, showContactForm } from '../../../actions';
+import { removeContact, showContactForm } from '../../../actions';
 
 class ContactActions extends React.Component {
 
@@ -14,7 +14,7 @@ class ContactActions extends React.Component {
   }
 
   onDelete() {
-    this.props.onDeleteClick(this.props.contact.id);
+    this.props.onDeleteClick(this.props.contact);
   }
 
   onEdit() {
@@ -52,8 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onDeleteClick: (id) => {
-      dispatch(deleteContact(id));
+    onDeleteClick: (contact) => {
+      dispatch(removeContact(contact));
     },
     onEditClick: (contact) => {
       dispatch(showContactForm(contact));

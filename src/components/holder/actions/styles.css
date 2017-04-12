@@ -15,7 +15,7 @@
 }
 
 .show .delete input {
-  background: url('./img_cancel.png') no-repeat;
+  background: url('../../../images/cancel.png') no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
   width: 17px;
@@ -24,7 +24,7 @@
 }
 
 .show .edit input {
-  background: url('./img_edit.png') no-repeat;
+  background: url('../../../images/edit.png') no-repeat;
   background-size: 100% 100%;
   cursor: pointer;
   width: 17px;

@@ -1,17 +1,18 @@
 import React from 'react';
 
-import styles from './cardStyle.css';
+import styles from './styles.css';
+
+const placeholder = require('../../images/placeholder.jpg');
 
 export default class ContactCard extends React.Component {
 
   render() {
     const contact = this.props.contact;
-
-    contact.picture = contact.picture || require('./placeholder.jpg');
+    const picture = contact.picture || placeholder;
 
     return (<div className={styles.card}>
       <div className={styles.profile} >
-        <img className={styles.picture} src={contact.picture} role="presentation" />
+        <img className={styles.picture} src={picture} role="presentation" />
       </div>
       <div className={styles.details} >
         <div className={styles.contactName} title={contact.name}>{contact.name}</div>

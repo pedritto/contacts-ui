@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './formStyle.css';
+import styles from './styles.css';
 
 export default class TextInput extends React.Component {
 

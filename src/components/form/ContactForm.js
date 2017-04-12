@@ -1,24 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import styles from './formStyle.css';
+import styles from './styles.css';
 
 import TextInput from './TextInput';
-import { addContact, editContact } from '../../actions';
+import { saveContact, updateContact } from '../../actions';
 
 class ContactForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      id: props.contact ? props.contact.id : '',
       name: props.contact ? props.contact.name : '',
       address: props.contact ? props.contact.address : '',
       contactNumber: props.contact ? props.contact.contactNumber : '',
       email: props.contact ? props.contact.email : '',
-      company: props.contact ? props.contact.company : '',
-      picture: props.contact ? props.contact.picture : ''
+      company: props.contact ? props.contact.company : ''
+      // picture: props.contact ? props.contact.picture : ''
     };
+
+    if (props.contact && props.contact.id) {
+      this.state.id = props.contact.id;
+    }
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -31,8 +34,8 @@ class ContactForm extends React.Component {
       address: nextProps.contact.address,
       contactNumber: nextProps.contact.contactNumber,
       email: nextProps.contact.email,
-      company: nextProps.contact.company,
-      picture: nextProps.contact.picture
+      company: nextProps.contact.company
+      // picture: nextProps.contact.picture
     });
   }
 
@@ -77,9 +80,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubmitClick: (contact) => {
       if (contact.id) {
-        dispatch(editContact(contact));
+        dispatch(updateContact(contact));
       } else {
-        dispatch(addContact(contact));
+        dispatch(saveContact(contact));
       }
     }
   };
