@@ -1,12 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import styles from './styles.css';
 
 import TextInput from './TextInput';
-import { updateContact, saveContact, hideContactForm } from '../../actions';
 
-class ContactForm extends React.Component {
+export default class ContactForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -69,25 +67,3 @@ ContactForm.propTypes = {
   contact: React.PropTypes.object,
   onSubmitClick: React.PropTypes.func
 };
-
-const mapStateToProps = (state) => {
-  return {
-    contact: state.form.contact
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSubmitClick: (contact) => {
-      if (contact.id) {
-        dispatch(updateContact(contact));
-        dispatch(hideContactForm());
-      } else {
-        dispatch(saveContact(contact));
-        dispatch(hideContactForm());
-      }
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

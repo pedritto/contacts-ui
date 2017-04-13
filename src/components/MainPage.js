@@ -1,14 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { loadContactList } from '../actions';
 
 import Header from './header/Header';
-import CardHolder from './holder/CardHolder';
 import FilterBar from './filter/FilterBar';
-import ContactForm from './form/ContactForm';
 
-class Page extends React.Component {
+import Holder from '../containers/Holder';
+import Form from '../containers/Form';
+
+export default class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -38,12 +36,12 @@ class Page extends React.Component {
 
   renderContent() {
     if (this.props.displayForm) {
-      return <ContactForm />;
+      return <Form />;
     }
     return (
       <div>
         <FilterBar />
-        <CardHolder width={2} />
+        <Holder />
       </div>
     );
   }
@@ -59,25 +57,9 @@ class Page extends React.Component {
 
 }
 
-Page.propTypes = {
+MainPage.propTypes = {
   isActionPending: React.PropTypes.bool.isRequired,
   isActionFailed: React.PropTypes.bool.isRequired,
   displayForm: React.PropTypes.bool.isRequired,
   loadContacts: React.PropTypes.func.isRequired
 };
-
-const mapStateToProps = (state) => {
-  return {
-    isActionPending: state.contact.isPending,
-    isActionFailed: state.contact.isError,
-    displayForm: state.form.isActive
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadContacts: () => dispatch(loadContactList())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Page);

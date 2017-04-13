@@ -1,11 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import styles from './styles.css';
 
-import { removeContact, showContactForm } from '../../../actions';
-
-class ContactActions extends React.Component {
+export default class ContactActions extends React.Component {
 
   constructor() {
     super();
@@ -43,22 +40,3 @@ ContactActions.propTypes = {
   onDeleteClick: React.PropTypes.func,
   onEditClick: React.PropTypes.func
 };
-
-const mapStateToProps = (state) => {
-  return {
-    state
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onDeleteClick: (contact) => {
-      dispatch(removeContact(contact));
-    },
-    onEditClick: (contact) => {
-      dispatch(showContactForm(contact));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactActions);

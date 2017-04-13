@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Search from './Search';
-import NewContact from './NewContact';
+import AddContact from '../../containers/AddContact';
 
 import styles from './styles.css';
 
@@ -11,7 +11,7 @@ export default class FilterBar extends React.Component {
     return (
       <div className={styles.filterbar}>
         <Search />
-        <NewContact />
+        <AddContact />
       </div>
     );
   }

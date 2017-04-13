@@ -1,9 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Row from './Row';
 
-class CardHolder extends React.Component {
+export default class CardHolder extends React.Component {
 
   constructor(props) {
     super(props);
@@ -49,11 +48,3 @@ CardHolder.propTypes = {
   contacts: React.PropTypes.array.isRequired,
   width: React.PropTypes.number.isRequired
 };
-
-const mapStateToProps = (state) => {
-  return {
-    contacts: state.contactList.list
-  };
-};
-
-export default connect(mapStateToProps)(CardHolder);

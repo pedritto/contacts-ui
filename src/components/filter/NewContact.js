@@ -1,11 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-
-import { showContactForm } from '../../actions';
 
 import styles from './styles.css';
 
-class NewContact extends React.Component {
+export default class NewContact extends React.Component {
 
   render() {
     return (
@@ -20,17 +17,3 @@ class NewContact extends React.Component {
 NewContact.propTypes = {
   onNewContact: React.PropTypes.func
 };
-
-const mapStateToProps = (state) => {
-  return {
-    state
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onNewContact: () => dispatch(showContactForm())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewContact);

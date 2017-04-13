@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ContactCard from '../contact/ContactCard';
-import ContactActions from './actions/ContactActions';
+import Actions from '../../containers/Actions';
 
 import styles from './styles.css';
 
@@ -43,7 +43,7 @@ export default class Element extends React.Component {
           key={this.state.contact.id}
           contact={this.state.contact}
         />
-        <ContactActions
+        <Actions
           key={this.state.contact.name}
           contact={this.state.contact}
           display={this.state.isHovering}
