@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from './styles.css';
 
 import TextInput from './TextInput';
-import { saveContact, updateContact, hideContactForm } from '../../actions';
+import { updateContact, saveContact, hideContactForm } from '../../actions';
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -80,11 +80,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubmitClick: (contact) => {
       if (contact.id) {
-        dispatch(hideContactForm());
         dispatch(updateContact(contact));
-      } else {
         dispatch(hideContactForm());
+      } else {
         dispatch(saveContact(contact));
+        dispatch(hideContactForm());
       }
     }
   };

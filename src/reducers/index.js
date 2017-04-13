@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import contacts from './contacts';
+import contact from './contact';
+import contactList from './contactList';
 import form from './form';
 
-export default combineReducers({ contacts, form });
+export default combineReducers({ contact, contactList, form });

@@ -52,7 +52,7 @@ CardHolder.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contacts
+    contacts: state.contactList.list
   };
 };
 

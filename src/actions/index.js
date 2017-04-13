@@ -1,32 +1,29 @@
 import ContactService from '../services/contact.service';
 
+import { exec } from './AsyncAction';
+
+export const LIST_CONTACTS = 'LIST_CONTACTS';
 export const ADD_CONTACT = 'ADD_CONTACT';
-export const UPDATE_CONTACT = 'UPDATE_CONTACT';
+export const EDIT_CONTACT = 'EDIT_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
+
 export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';
 export const HIDE_CONTACT_FORM = 'HIDE_CONTACT_FORM';
-export const REQUEST_CONTACTS = 'REQUEST_CONTACTS';
-export const RECEIVE_CONTACTS = 'RECEIVE_CONTACTS';
 
-export const addContact = (contact) => {
-  return {
-    type: ADD_CONTACT,
-    contact
-  };
+export const loadContactList = () => {
+  return exec(ContactService.getAll, LIST_CONTACTS);
 };
 
-export const editContact = (contact) => {
-  return {
-    type: UPDATE_CONTACT,
-    contact
-  };
+export const saveContact = (contact) => {
+  return exec(() => ContactService.save(contact), ADD_CONTACT);
 };
 
-export const deleteContact = (contact) => {
-  return {
-    type: DELETE_CONTACT,
-    contact
-  };
+export const updateContact = (contact) => {
+  return exec(() => ContactService.update(contact), EDIT_CONTACT);
+};
+
+export const removeContact = (contact) => {
+  return exec(() => ContactService.delete(contact), DELETE_CONTACT);
 };
 
 export const showContactForm = (contact) => {
@@ -40,62 +37,4 @@ export const hideContactForm = () => {
   return {
     type: HIDE_CONTACT_FORM
   };
-};
-
-export const requestContacts = () => {
-  return {
-    type: REQUEST_CONTACTS
-  };
-};
-
-export const receiveContacts = (response) => {
-  return {
-    type: RECEIVE_CONTACTS,
-    contacts: response.contacts
-  };
-};
-
-function serviceCall(method, onFullfilled, onRequest) {
-  return function (dispatch) {
-    if (typeof onRequest === 'function') {
-      dispatch(onRequest);
-    }
-
-    return method()
-      .then((contact) => {
-        dispatch(onFullfilled(contact));
-      })
-      .catch((error) => {
-        throw (error);
-      });
-  };
-}
-
-export const loadContacts = () => {
-  return serviceCall(
-    ContactService.getAll,
-    receiveContacts,
-    requestContacts
-  );
-};
-
-export const saveContact = (contact) => {
-  return serviceCall(
-    () => ContactService.save(contact),
-    addContact
-  );
-};
-
-export const updateContact = (contact) => {
-  return serviceCall(
-    () => ContactService.update(contact),
-    editContact
-  );
-};
-
-export const removeContact = (contact) => {
-  return serviceCall(
-    () => ContactService.delete(contact),
-    deleteContact
-  );
 };

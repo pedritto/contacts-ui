@@ -8,11 +8,7 @@ import configureStore from './configure-store';
 import DevTools from './dev-tools';
 import App from './app';
 
-import { loadContacts } from './actions';
-
 const store = configureStore();
-
-store.dispatch(loadContacts());
 
 ReactDOM.render(
   <Provider store={store}>
