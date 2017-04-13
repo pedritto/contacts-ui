@@ -26,10 +26,10 @@ class ContactActions extends React.Component {
 
     return (
       <div className={style}>
-        <div className={styles.delete} title="delete">
+        <div className={styles.delete} title="Delete">
           <input type="submit" name="" value="" onClick={this.onDelete} />
         </div>
-        <div className={styles.edit} title="edit">
+        <div className={styles.edit} title="Edit">
           <input type="submit" name="" value="" onClick={this.onEdit} />
         </div>
       </div>

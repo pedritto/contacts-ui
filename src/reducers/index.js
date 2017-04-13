@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
 import contacts from './contacts';
-import inEdit from './inEdit';
+import form from './form';
 
-export default combineReducers({ contacts, inEdit });
+export default combineReducers({ contacts, form });

@@ -1,0 +1,11 @@
+.header {
+  border-bottom: 2px solid lightgrey;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.title {
+  color: darkslategrey;
+  font-size: 28px;
+  margin-left: 10px;
+}

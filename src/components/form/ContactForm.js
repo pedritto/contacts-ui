@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styles from './styles.css';
 
 import TextInput from './TextInput';
-import { saveContact, updateContact } from '../../actions';
+import { saveContact, updateContact, hideContactForm } from '../../actions';
 
 class ContactForm extends React.Component {
   constructor(props) {
@@ -72,7 +72,7 @@ ContactForm.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    contact: state.inEdit
+    contact: state.form.contact
   };
 };
 
@@ -80,8 +80,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSubmitClick: (contact) => {
       if (contact.id) {
+        dispatch(hideContactForm());
         dispatch(updateContact(contact));
       } else {
+        dispatch(hideContactForm());
         dispatch(saveContact(contact));
       }
     }

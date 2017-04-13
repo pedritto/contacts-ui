@@ -1,0 +1,40 @@
+.filterbar {
+  height: 40px;
+}
+
+.filterbar .search {
+  display: inline-block;
+}
+
+.filterbar .search label {
+  color: darkslategrey;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.filterbar .search input {
+  background-color: #eee;
+  border-radius: 5px;
+  border: 2px solid lightgrey;
+  color: darkslategrey;
+  height: 20px;
+  padding-left: 5px;
+  width: 250px;
+}
+
+.filterbar .new {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+
+.filterbar .new input {
+  background: url('../../images/plus.png') no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+}

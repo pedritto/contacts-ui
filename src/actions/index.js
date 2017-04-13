@@ -4,6 +4,7 @@ export const ADD_CONTACT = 'ADD_CONTACT';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';
+export const HIDE_CONTACT_FORM = 'HIDE_CONTACT_FORM';
 export const REQUEST_CONTACTS = 'REQUEST_CONTACTS';
 export const RECEIVE_CONTACTS = 'RECEIVE_CONTACTS';
 
@@ -32,6 +33,12 @@ export const showContactForm = (contact) => {
   return {
     type: SHOW_CONTACT_FORM,
     contact
+  };
+};
+
+export const hideContactForm = () => {
+  return {
+    type: HIDE_CONTACT_FORM
   };
 };
 
