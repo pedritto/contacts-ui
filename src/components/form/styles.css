@@ -23,6 +23,15 @@
   width: 200px;
 }
 
+.form select {
+  background-color: #eee;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  color: darkslategrey;
+  height: 24px;
+  width: 120px;
+}
+
 .form .inputRow {
   margin-bottom: 10px;
 }

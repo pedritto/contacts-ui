@@ -5,7 +5,8 @@ import { updateContact, saveContact, hideContactForm } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
-    contact: state.form.contact
+    contact: state.form.contact,
+    partners: state.partnerList.list
   };
 };
 

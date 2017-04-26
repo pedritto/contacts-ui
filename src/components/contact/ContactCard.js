@@ -9,6 +9,7 @@ export default class ContactCard extends React.Component {
   render() {
     const contact = this.props.contact;
     const picture = contact.picture || placeholder;
+    const partnerName = (contact.partner && contact.partner.name) || '';
 
     return (<div className={styles.card}>
       <div className={styles.profile} >
@@ -17,7 +18,7 @@ export default class ContactCard extends React.Component {
       <div className={styles.details} >
         <div className={styles.contactName} title={contact.name}>{contact.name}</div>
         <div className={styles.address}>{contact.address}</div>
-        <div className={styles.work}>{contact.company}</div>
+        <div className={styles.work}>{partnerName}</div>
         <div className={styles.telephone}>{contact.contactNumber}</div>
         <div className={styles.email}>
           <a href="mailto:{contact.email}">{contact.email}</a>

@@ -1,4 +1,5 @@
 import ContactService from '../services/contact.service';
+import PartnerService from '../services/partner.service';
 
 import { exec } from './AsyncAction';
 
@@ -6,6 +7,8 @@ export const LIST_CONTACTS = 'LIST_CONTACTS';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const EDIT_CONTACT = 'EDIT_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
+
+export const LIST_PARTNERS = 'LIST_PARTNERS';
 
 export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';
 export const HIDE_CONTACT_FORM = 'HIDE_CONTACT_FORM';
@@ -24,6 +27,10 @@ export const updateContact = (contact) => {
 
 export const removeContact = (contact) => {
   return exec(() => ContactService.delete(contact), DELETE_CONTACT);
+};
+
+export const loadPartnerList = () => {
+  return exec(PartnerService.getAll, LIST_PARTNERS);
 };
 
 export const showContactForm = (contact) => {

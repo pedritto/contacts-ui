@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './styles.css';
 
 import TextInput from './TextInput';
+import Selection from './Selection';
 
 export default class ContactForm extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class ContactForm extends React.Component {
       address: props.contact ? props.contact.address : '',
       contactNumber: props.contact ? props.contact.contactNumber : '',
       email: props.contact ? props.contact.email : '',
-      company: props.contact ? props.contact.company : ''
+      partner: props.contact ? props.contact.partner : {}
       // picture: props.contact ? props.contact.picture : ''
     };
 
@@ -26,15 +27,19 @@ export default class ContactForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      id: nextProps.contact.id,
-      name: nextProps.contact.name,
-      address: nextProps.contact.address,
-      contactNumber: nextProps.contact.contactNumber,
-      email: nextProps.contact.email,
-      company: nextProps.contact.company
-      // picture: nextProps.contact.picture
-    });
+    if (nextProps.contact) {
+      this.setState({
+        id: nextProps.contact.id,
+        name: nextProps.contact.name,
+        address: nextProps.contact.address,
+        contactNumber: nextProps.contact.contactNumber,
+        email: nextProps.contact.email,
+        partner: nextProps.contact.partner || {}
+        // picture: nextProps.contact.picture
+      });
+    } else {
+      this.setState({});
+    }
   }
 
   onSubmit() {
@@ -52,7 +57,7 @@ export default class ContactForm extends React.Component {
       <div className={styles.form}>
         <TextInput id="name" label="Name" value={this.state.name} onValueChange={this.handleInputChange} />
         <TextInput id="address" label="Address" value={this.state.address} onValueChange={this.handleInputChange} />
-        <TextInput id="company" label="Company" value={this.state.company} onValueChange={this.handleInputChange} />
+        <Selection id="partnerId" label="Partner" value={this.state.partner} options={this.props.partners} onValueChange={this.handleInputChange} />
         <TextInput id="contactNumber" label="Telephone" value={this.state.contactNumber} onValueChange={this.handleInputChange} />
         <TextInput id="email" label="Email" value={this.state.email} onValueChange={this.handleInputChange} />
         <div className={styles.submit} title="go">
@@ -65,5 +70,6 @@ export default class ContactForm extends React.Component {
 
 ContactForm.propTypes = {
   contact: React.PropTypes.object,
+  partners: React.PropTypes.array,
   onSubmitClick: React.PropTypes.func
 };
