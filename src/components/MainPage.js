@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Loadable from 'react-loading-overlay';
+
 import Header from './header/Header';
 import FilterBar from './filter/FilterBar';
 
@@ -11,8 +13,7 @@ export default class MainPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPending: props.isActionPending,
-      isActionFailed: props.isActionFailed,
+      isPending: props.isPending,
       loadContacts: props.loadContacts
     };
   }
@@ -22,15 +23,13 @@ export default class MainPage extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const fullfilled = this.state.isPending && !nextProps.isActionPending;
-    const success = !nextProps.isActionFailed;
-    if (fullfilled && success) {
+    const formClosed = this.props.displayForm && !nextProps.displayForm;
+    if (formClosed) {
       this.state.loadContacts();
     }
 
     this.setState({
-      isPending: nextProps.isActionPending,
-      isActionFailed: nextProps.isActionFailed
+      isPending: nextProps.isPending
     });
   }
 
@@ -40,8 +39,14 @@ export default class MainPage extends React.Component {
     }
     return (
       <div>
-        <FilterBar />
-        <Holder />
+        <Loadable
+          active={this.state.isPending}
+          spinner
+          text="Loading contacts..."
+        >
+          <FilterBar />
+          <Holder />
+        </Loadable>
       </div>
     );
   }
@@ -58,8 +63,7 @@ export default class MainPage extends React.Component {
 }
 
 MainPage.propTypes = {
-  isActionPending: React.PropTypes.bool.isRequired,
-  isActionFailed: React.PropTypes.bool.isRequired,
+  isPending: React.PropTypes.bool.isRequired,
   displayForm: React.PropTypes.bool.isRequired,
   loadContacts: React.PropTypes.func.isRequired
 };

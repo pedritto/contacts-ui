@@ -30,16 +30,18 @@ export default class CardHolder extends React.Component {
 
   render() {
     return (
-      <table>
-        <tbody>
-          {
-            this.state.rows.map((contacts) => {
-              return (
-                <Row contacts={contacts} key={contacts[0].id} />);
-            })
-          }
-        </tbody>
-      </table>
+      <div style={{ minHeight: 500 }}>
+        <table>
+          <tbody>
+            {
+              this.state.rows.map((contacts) => {
+                return (
+                  <Row contacts={contacts} key={contacts[0].id} />);
+              })
+            }
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

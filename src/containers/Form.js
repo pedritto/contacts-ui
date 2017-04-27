@@ -5,6 +5,7 @@ import { updateContact, saveContact, hideContactForm } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
+    isActionPending: state.contact.isPending,
     contact: state.form.contact,
     partners: state.partners
   };
@@ -15,11 +16,12 @@ const mapDispatchToProps = (dispatch) => {
     onSubmitClick: (contact) => {
       if (contact.id) {
         dispatch(updateContact(contact));
-        dispatch(hideContactForm());
       } else {
         dispatch(saveContact(contact));
-        dispatch(hideContactForm());
       }
+    },
+    hideForm: () => {
+      dispatch(hideContactForm());
     }
   };
 };

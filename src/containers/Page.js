@@ -6,8 +6,7 @@ import MainPage from '../components/MainPage';
 
 const mapStateToProps = (state) => {
   return {
-    isActionPending: state.contact.isPending,
-    isActionFailed: state.contact.isError,
+    isPending: state.contacts.isPending,
     displayForm: state.form.isActive
   };
 };
