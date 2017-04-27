@@ -3,18 +3,18 @@ import PartnerService from '../services/partner.service';
 
 import { exec } from './AsyncAction';
 
-export const LIST_CONTACTS = 'LIST_CONTACTS';
+export const GET_CONTACTS = 'GET_CONTACTS';
 export const ADD_CONTACT = 'ADD_CONTACT';
 export const EDIT_CONTACT = 'EDIT_CONTACT';
 export const DELETE_CONTACT = 'DELETE_CONTACT';
 
-export const LIST_PARTNERS = 'LIST_PARTNERS';
+export const GET_PARTNERS = 'LIST_PARTNERS';
 
 export const SHOW_CONTACT_FORM = 'SHOW_CONTACT_FORM';
 export const HIDE_CONTACT_FORM = 'HIDE_CONTACT_FORM';
 
-export const loadContactList = () => {
-  return exec(ContactService.getAll, LIST_CONTACTS);
+export const loadContacts = () => {
+  return exec(ContactService.getAll, GET_CONTACTS);
 };
 
 export const saveContact = (contact) => {
@@ -29,8 +29,8 @@ export const removeContact = (contact) => {
   return exec(() => ContactService.delete(contact), DELETE_CONTACT);
 };
 
-export const loadPartnerList = () => {
-  return exec(PartnerService.getAll, LIST_PARTNERS);
+export const loadPartners = () => {
+  return exec(PartnerService.getAll, GET_PARTNERS);
 };
 
 export const showContactForm = (contact) => {

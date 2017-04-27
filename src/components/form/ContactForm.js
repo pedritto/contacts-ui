@@ -55,11 +55,38 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <div className={styles.form}>
-        <TextInput id="name" label="Name" value={this.state.name} onValueChange={this.handleInputChange} />
-        <TextInput id="address" label="Address" value={this.state.address} onValueChange={this.handleInputChange} />
-        <Selection id="partnerId" label="Partner" value={this.state.partner} options={this.props.partners} onValueChange={this.handleInputChange} />
-        <TextInput id="contactNumber" label="Telephone" value={this.state.contactNumber} onValueChange={this.handleInputChange} />
-        <TextInput id="email" label="Email" value={this.state.email} onValueChange={this.handleInputChange} />
+        <TextInput
+          id="name"
+          label="Name"
+          value={this.state.name}
+          onValueChange={this.handleInputChange}
+        />
+        <TextInput
+          id="address"
+          label="Address"
+          value={this.state.address}
+          onValueChange={this.handleInputChange}
+        />
+        <Selection
+          id="partnerId"
+          label="Partner"
+          value={this.state.partner}
+          options={this.props.partners.data}
+          disabled={this.props.partners.isPending}
+          onValueChange={this.handleInputChange}
+        />
+        <TextInput
+          id="contactNumber"
+          label="Telephone"
+          value={this.state.contactNumber}
+          onValueChange={this.handleInputChange}
+        />
+        <TextInput
+          id="email"
+          label="Email"
+          value={this.state.email}
+          onValueChange={this.handleInputChange}
+        />
         <div className={styles.submit} title="go">
           <input type="submit" name="" value="" onClick={this.onSubmit} />
         </div>
@@ -70,6 +97,6 @@ export default class ContactForm extends React.Component {
 
 ContactForm.propTypes = {
   contact: React.PropTypes.object,
-  partners: React.PropTypes.array,
+  partners: React.PropTypes.object,
   onSubmitClick: React.PropTypes.func
 };

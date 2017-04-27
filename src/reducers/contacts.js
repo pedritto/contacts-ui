@@ -1,9 +1,9 @@
-import { LIST_CONTACTS } from '../actions';
+import { GET_CONTACTS } from '../actions';
 
 import { PENDING, SUCCESS, ERROR } from '../actions/AsyncAction';
 
 const initialState = {
-  list: [],
+  data: [],
   count: 0,
   isPending: false,
   isError: false,
@@ -12,22 +12,23 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LIST_CONTACTS + PENDING:
+    case GET_CONTACTS + PENDING:
       return Object.assign({}, state, {
+        data: [],
         isPending: true,
         isError: false,
         error: null
       });
-    case LIST_CONTACTS + SUCCESS:
+    case GET_CONTACTS + SUCCESS:
       return Object.assign({}, state, {
-        list: action.data.contacts,
+        data: action.data.contacts,
         count: action.data.count,
         isPending: false,
         isError: false
       });
-    case LIST_CONTACTS + ERROR:
+    case GET_CONTACTS + ERROR:
       return Object.assign({}, state, {
-        list: [],
+        data: [],
         count: 0,
         isPending: false,
         isError: true,

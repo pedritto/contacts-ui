@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import ContactActions from '../components/holder/actions/ContactActions';
-import { removeContact, showContactForm, loadPartnerList } from '../actions';
+import { removeContact, showContactForm, loadPartners } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(removeContact(contact));
     },
     onEditClick: (contact) => {
-      dispatch(loadPartnerList());
+      dispatch(loadPartners());
       dispatch(showContactForm(contact));
     }
   };

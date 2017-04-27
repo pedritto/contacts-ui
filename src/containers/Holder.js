@@ -3,7 +3,7 @@ import CardHolder from '../components/holder/CardHolder';
 
 const mapStateToProps = (state) => {
   return {
-    contacts: state.contactList.list,
+    contacts: state.contacts.data,
     width: 2
   };
 };

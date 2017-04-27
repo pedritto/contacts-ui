@@ -12,12 +12,15 @@ export default class Selection extends React.Component {
       <div className={styles.inputRow} style={styles}>
         <label htmlFor={this.props.id}>{this.props.label}</label>
         <select
+          disabled={this.props.disabled}
           id={selectedId}
           name={this.props.id}
           defaultValue={selectedId}
           onChange={this.props.onValueChange}
         >
-          <option key="0" value="0" />
+          <option key="0" value="0">
+            {this.props.disabled ? 'loading' : ''}
+          </option>
           {
             options.map((option) => {
               return (
@@ -35,6 +38,7 @@ export default class Selection extends React.Component {
 Selection.propTypes = {
   id: React.PropTypes.string.isRequired,
   label: React.PropTypes.string.isRequired,
+  disabled: React.PropTypes.bool.isRequired,
   value: React.PropTypes.object,
   options: React.PropTypes.array,
   onValueChange: React.PropTypes.func.isRequired

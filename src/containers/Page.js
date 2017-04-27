@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { loadContactList } from '../actions';
+import { loadContacts } from '../actions';
 
 import MainPage from '../components/MainPage';
 
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    loadContacts: () => dispatch(loadContactList())
+    loadContacts: () => dispatch(loadContacts())
   };
 };
 

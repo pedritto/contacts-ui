@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import NewContact from '../components/filter/NewContact';
-import { showContactForm, loadPartnerList } from '../actions';
+import { showContactForm, loadPartners } from '../actions';
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onNewContact: () => {
-      dispatch(loadPartnerList());
+      dispatch(loadPartners());
       dispatch(showContactForm());
     }
   };
